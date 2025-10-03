@@ -12,6 +12,8 @@ app.use(express.json())
 // app.use(express.urlencoded({ extended: true }))
 // app.disable('etag');
 function errorHandler(err, req, res, next) {
+  console.log('Error:', err)
+
   res.status(500)
   res.render('error', { error: err })
 }
