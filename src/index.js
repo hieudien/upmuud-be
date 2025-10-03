@@ -31,13 +31,14 @@ try {
     })
   })
     .catch((error) => {
-      console.log(error)
+      console.log('Error:', error)
     });
 } catch (error) {
-  console.log(error);
+  console.log('Error:', error)
 }
 
 app.get('/', (req, res) => {
+  console.log("log get / request")
   res.send('hello upmuud')
 })
 
