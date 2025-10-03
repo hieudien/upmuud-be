@@ -23,6 +23,9 @@ try {
     if (process.argv.includes('syncAllDB')) {
       await sequelize.sync({ alter: true });
     }
+    app.get('/test', (req, res) => {
+      res.send('Hello')
+    })
     app.listen(PORT, () => {
       console.log('Server has started on port: ', PORT);
     })
