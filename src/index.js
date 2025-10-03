@@ -6,7 +6,16 @@ import router from './routes/index.js'
 const app = express()
 const PORT = process.env.PORT || 5000
 
-app.use(cors());
+  const allowedOrigins = [process.env.FRONTEND_SITE, process.env.FRONTEND_SITE_LOCAL];
+    app.use(cors({
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+    }));
 
 app.use(express.json())
 // app.use(express.urlencoded({ extended: true }))
