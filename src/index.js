@@ -6,21 +6,12 @@ import router from './routes/index.js'
 const app = express()
 const PORT = process.env.PORT || 5000
 
-  const allowedOrigins = [process.env.FRONTEND_SITE, process.env.FRONTEND_SITE_LOCAL];
-    app.use(cors({
-      origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-          callback(null, true);
-        } else {
-          callback(new Error('Not allowed by CORS'));
-        }
-      },
-    }));
+app.use(cors())
 
 app.use(express.json())
 // app.use(express.urlencoded({ extended: true }))
 // app.disable('etag');
-function errorHandler (err, req, res, next) {
+function errorHandler(err, req, res, next) {
   res.status(500)
   res.render('error', { error: err })
 }
