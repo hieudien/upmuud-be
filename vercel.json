@@ -6,7 +6,7 @@
       "headers": [
        {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://upmuud-ipmq5s0fw-hieudiens-projects.vercel.app"
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
